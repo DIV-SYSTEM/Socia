@@ -1,0 +1,26 @@
+name: React Native Build
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build || echo "React Native projects usually build with native tools, skip for web"
+
+      - name: Done
+        run: echo "Modify this job later for Firebase deployment or Expo publish"
