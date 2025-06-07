@@ -35,6 +35,11 @@ jobs:
       - name: 🛠️ Make gradlew executable
         run: chmod +x android/gradlew
 
+      - name: 🔁 Update Gradle Wrapper to 8.5
+        run: |
+          cd android
+          ./gradlew wrapper --gradle-version 8.5 --distribution-type all
+
       - name: 🏗️ Build APK
         run: |
           cd android
